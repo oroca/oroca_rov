@@ -42,9 +42,9 @@ void setup()
   Serial.begin(115200);
 
   RovSerial.begin(115200); 
-  RovServo[RC_MOTOR_L].attach(RC_MOTOR_PIN_L, 100, 2000, 0, 255 );
-  RovServo[RC_MOTOR_C].attach(RC_MOTOR_PIN_C, 100, 2000, 0, 255 );
-  RovServo[RC_MOTOR_R].attach(RC_MOTOR_PIN_R, 100, 2000, 0, 255 );
+  RovServo[RC_MOTOR_L].attach(RC_MOTOR_PIN_L, 1000, 2000, 0, 255 );
+  RovServo[RC_MOTOR_C].attach(RC_MOTOR_PIN_C, 1000, 2000, 0, 255 );
+  RovServo[RC_MOTOR_R].attach(RC_MOTOR_PIN_R, 1000, 2000, 0, 255 );
 
   RovServo[RC_MOTOR_L].write(0);
   RovServo[RC_MOTOR_C].write(0);
@@ -111,7 +111,7 @@ void rc_setup( void )
     //시동 
     if( ch == 'o' )
     {
-      rc_pwm_L = 100, rc_pwm_R = 100, rc_pwm_T = 100;
+      rc_pwm_L = 0, rc_pwm_R = 0, rc_pwm_T = 0;
       RovServo[0].write(rc_pwm_L);
       RovServo[1].write(rc_pwm_R);
       RovServo[2].write(rc_pwm_T);
@@ -120,7 +120,7 @@ void rc_setup( void )
     //정지 (시동끄기)
     if( ch == 'p' )
     {
-      rc_pwm_L = 100, rc_pwm_R = 100, rc_pwm_T = 100;
+      rc_pwm_L = 0, rc_pwm_R = 0, rc_pwm_T = 0;
       RovServo[0].write(rc_pwm_L);
       RovServo[1].write(rc_pwm_R);
       RovServo[2].write(rc_pwm_T);
@@ -129,8 +129,8 @@ void rc_setup( void )
     //전진 모터 가속
     if( ch == 'w' )
     {
-      rc_pwm_L = constrain(rc_pwm_L++, 100, 2000);
-      rc_pwm_R = constrain(rc_pwm_R++, 100, 2000);
+      rc_pwm_L = constrain(rc_pwm_L++, 0, 2000);
+      rc_pwm_R = constrain(rc_pwm_R++, 0, 2000);
       RovServo[0].write(rc_pwm_L);
       RovServo[2].write(rc_pwm_R);
       Serial.println("Left=");
@@ -141,8 +141,8 @@ void rc_setup( void )
     //전진 모터 감속
     if( ch == 's' )
     {
-      rc_pwm_L = constrain(rc_pwm_L--, 100, 2000);
-      rc_pwm_R = constrain(rc_pwm_R--, 100, 2000);
+      rc_pwm_L = constrain(rc_pwm_L--, 0, 2000);
+      rc_pwm_R = constrain(rc_pwm_R--, 0, 2000);
       RovServo[0].write(rc_pwm_L);
       RovServo[2].write(rc_pwm_R);
       Serial.println("Left=");
@@ -153,8 +153,8 @@ void rc_setup( void )
     //좌회전
     if( ch == 'a' )
     {
-      rc_pwm_L = constrain(rc_pwm_L--, 100, 2000);      
-      rc_pwm_R = constrain(rc_pwm_R++, 100, 2000);
+      rc_pwm_L = constrain(rc_pwm_L--, 0, 2000);      
+      rc_pwm_R = constrain(rc_pwm_R++, 0, 2000);
       RovServo[0].write(rc_pwm_L);    //좌측모터 출력 감소
       RovServo[2].write(rc_pwm_R);    //우측모터 출력 증가
       Serial.println("Left=");
@@ -165,8 +165,8 @@ void rc_setup( void )
     //우회전
     if( ch == 'd' )
     {
-      rc_pwm_L = constrain(rc_pwm_L++, 100, 2000);
-      rc_pwm_R = constrain(rc_pwm_R--, 100, 2000);
+      rc_pwm_L = constrain(rc_pwm_L++, 0, 2000);
+      rc_pwm_R = constrain(rc_pwm_R--, 0, 2000);
       RovServo[0].write(rc_pwm_L);   // 좌측모터 출력 증가
       RovServo[2].write(rc_pwm_R);    //우측모터 출력 감소
       Serial.println("Left=");
@@ -177,7 +177,7 @@ void rc_setup( void )
     //상단모터 가속
     if( ch == 'q' )
     {
-      rc_pwm_T = constrain(rc_pwm_T++, 100, 2000);
+      rc_pwm_T = constrain(rc_pwm_T++, 0, 2000);
       RovServo[1].write(rc_pwm_T);  
       Serial.println("Top=");
       Serial.println(rc_pwm_T);
@@ -185,7 +185,7 @@ void rc_setup( void )
     //상단모터 감속
     if( ch == 'e' )
     {
-      rc_pwm_T = constrain(rc_pwm_T--, 100, 2000);
+      rc_pwm_T = constrain(rc_pwm_T--, 0, 2000);
       RovServo[1].write(rc_pwm_T);   
       Serial.println("Top=");
       Serial.println(rc_pwm_T);
