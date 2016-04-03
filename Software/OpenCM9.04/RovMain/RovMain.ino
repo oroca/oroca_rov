@@ -89,7 +89,6 @@ void loop()
     }
   }
 
-/*
   //-- 연결이 끊어진 상태 
   //
   if( IsConnected == false )
@@ -98,11 +97,7 @@ void loop()
     RovServo[RC_MOTOR_C].write(0);
     RovServo[RC_MOTOR_R].write(0);    
   }
-*/
- 
 }
-
-
 
   
 void rc_setup( void )
@@ -217,9 +212,7 @@ void rc_setup( void )
       Serial.print("+++");
       Serial.println(led_R);
     }
- 
   }
-
 }
 
 void process_recv_cmd( void )
@@ -288,7 +281,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
  
   //-- 모터 제어 
   //Moter_Left
-  if(pCmd->Data[6] == 0x01)
+  if(pCmd->Data[6] == 1)
   {
     Pwm[0] = (pCmd->Data[8]<<8) | (pCmd->Data[7]);
     Serial.print("Moter_L : ");
@@ -296,7 +289,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
     RovServo[RC_MOTOR_L].write(Pwm[0]);
   }
   //Moter_Center
-  if(pCmd->Data[9] == 0x01)
+  if(pCmd->Data[9] == 1)
   {
     Pwm[1] = (pCmd->Data[11]<<8) | (pCmd->Data[10]);
     Serial.print("Moter_C : ");
@@ -304,7 +297,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
     RovServo[RC_MOTOR_C].write(Pwm[1]);
   }
   //Moter_Right
-  if(pCmd->Data[12] == 0x01)
+  if(pCmd->Data[12] == 1)
   {
     Pwm[2] = (pCmd->Data[14]<<8) | (pCmd->Data[13]);
     Serial.print("Moter_R : ");
@@ -315,7 +308,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
 
   //-- LED 제어 
   //Led_Left
-  if(pCmd->Data[0] == 0x01)
+  if(pCmd->Data[0] == 1)
   {
     Led[0] = (pCmd->Data[2]<<8) | (pCmd->Data[1]);
     Serial.print("Led_L : ");
@@ -323,7 +316,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
     analogWrite(LED_PIN_L, Led[0]);
   }
   //Led_Right
-  if(pCmd->Data[3] == 0x01)
+  if(pCmd->Data[3] == 1)
   {
     Led[1] = (pCmd->Data[5]<<8) | (pCmd->Data[4]);
     Serial.print("Led_R : ");
