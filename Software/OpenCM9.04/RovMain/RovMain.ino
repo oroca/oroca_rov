@@ -11,11 +11,12 @@
 //
 //    파일명       : RovMain.ino
 //----------------------------------------------------------------------------
+#include <Servo.h>
 #include "RSP.h"
-#include <Servo.h> 
- 
 
-#define USE_RC_SETUP  0
+RSP     RovSerial;
+
+#define USB_TEST_AVAILABLE 1  // control Motor & LED by using USB serial
 
 #define RC_MOTOR_L    0
 #define RC_MOTOR_C    1
@@ -24,20 +25,20 @@
 #define RC_MOTOR_PIN_L  2
 #define RC_MOTOR_PIN_C  3
 #define RC_MOTOR_PIN_R  5
+
 #define LED_PIN_L  8 
 #define LED_PIN_R  9
 
-RSP     RovSerial;
-Servo   RovServo[3];  
-
 bool IsConnected;
 
+void rc_usb_test();
 void led_setup();
-void rc_setup( void );
 void process_recv_cmd( void );
 
 void send_cmd_info( void );
 void recv_cmd_control( RSP_CMD_OBJ *pCmd );
+
+Servo   RovServo[3];  
 
 void setup() 
 {
@@ -48,9 +49,9 @@ void setup()
   RovServo[RC_MOTOR_C].attach(RC_MOTOR_PIN_C, 1000, 2000, 0, 255 );
   RovServo[RC_MOTOR_R].attach(RC_MOTOR_PIN_R, 1000, 2000, 0, 255 );
 
-  RovServo[RC_MOTOR_L].write(0);
-  RovServo[RC_MOTOR_C].write(0);
-  RovServo[RC_MOTOR_R].write(0);
+  RovServo[RC_MOTOR_L].writeMicroseconds(0);
+  RovServo[RC_MOTOR_C].writeMicroseconds(0);
+  RovServo[RC_MOTOR_R].writeMicroseconds(0);
 
   pinMode(LED_PIN_L, PWM);
   pinMode(LED_PIN_R, PWM);
@@ -70,10 +71,8 @@ void loop()
   //
   process_recv_cmd();
 
-  #if USE_RC_SETUP ==  1
-  rc_setup();
-  #endif
-
+  if(USB_TEST_AVAILABLE)
+  rc_usb_test();
 
   //-- 100ms마다 ROV정보 전달
   //
@@ -91,130 +90,17 @@ void loop()
 
   //-- 연결이 끊어진 상태 
   //
+/* 
   if( IsConnected == false )
   {
     RovServo[RC_MOTOR_L].write(0);
     RovServo[RC_MOTOR_C].write(0);
     RovServo[RC_MOTOR_R].write(0);    
   }
+  */
 }
 
   
-void rc_setup( void )
-{
-  volatile char ch;
-  volatile static int  rc_pwm_L = 0, rc_pwm_R = 0, rc_pwm_C = 0, led_L = 0, led_R = 0;
-
-  if( Serial.available() )
-  {
-    ch = Serial.read();
-    //시동 
-    if( ch == 'o' )
-    {
-      rc_pwm_L = 0, rc_pwm_R = 0, rc_pwm_C = 0;
-      RovServo[0].write(rc_pwm_L);
-      RovServo[1].write(rc_pwm_C);
-      RovServo[2].write(rc_pwm_R);
-      Serial.println("Start");
-    }
-    //정지 (시동끄기)
-    if( ch == 'p' )
-    {
-      rc_pwm_L = 0, rc_pwm_R = 0, rc_pwm_C = 0;
-      RovServo[0].write(rc_pwm_L);
-      RovServo[1].write(rc_pwm_C);
-      RovServo[2].write(rc_pwm_R);
-      Serial.println("Stop");
-    }
-    //전진 모터 가속
-    if( ch == 'w' )
-    {
-      rc_pwm_L = constrain(rc_pwm_L++, 0, 1000);
-      rc_pwm_R = constrain(rc_pwm_R++, 0, 1000);
-      RovServo[0].write(rc_pwm_L);
-      RovServo[2].write(rc_pwm_R);
-      Serial.print("Left=");
-      Serial.print(rc_pwm_L);
-      Serial.print("  Right=");
-      Serial.println(rc_pwm_R);
-    }
-    //전진 모터 감속
-    if( ch == 's' )
-    {
-      rc_pwm_L = constrain(rc_pwm_L--, 0, 1000);
-      rc_pwm_R = constrain(rc_pwm_R--, 0, 1000);
-      RovServo[0].write(rc_pwm_L);
-      RovServo[2].write(rc_pwm_R);
-      Serial.print("Left=");
-      Serial.print(rc_pwm_L);
-      Serial.print("  Right=");
-      Serial.println(rc_pwm_R);
-    }
-    //좌회전
-    if( ch == 'a' )
-    {
-      rc_pwm_L = constrain(rc_pwm_L--, 0, 1000);      
-      rc_pwm_R = constrain(rc_pwm_R++, 0, 1000);
-      RovServo[0].write(rc_pwm_L);    //좌측모터 출력 감소
-      RovServo[2].write(rc_pwm_R);    //우측모터 출력 증가
-      Serial.print("Left=");
-      Serial.print(rc_pwm_L);
-      Serial.print("  Right=");
-      Serial.println(rc_pwm_R);
-    }
-    //우회전
-    if( ch == 'd' )
-    {
-      rc_pwm_L = constrain(rc_pwm_L++, 0, 1000);
-      rc_pwm_R = constrain(rc_pwm_R--, 0, 1000);
-      RovServo[0].write(rc_pwm_L);   // 좌측모터 출력 증가
-      RovServo[2].write(rc_pwm_R);    //우측모터 출력 감소
-      Serial.print("Left=");
-      Serial.print(rc_pwm_L);
-      Serial.print("  Right=");
-      Serial.println(rc_pwm_R);
-    }
-    //상단모터 가속
-    if( ch == 'q' )
-    {
-      rc_pwm_C = constrain(rc_pwm_C++, 0, 1000);
-      RovServo[1].write(rc_pwm_C);  
-      Serial.print("Center=");
-      Serial.println(rc_pwm_C);
-    }
-    //상단모터 감속
-    if( ch == 'e' )
-    {
-      rc_pwm_C = constrain(rc_pwm_C--, 0, 1000);
-      RovServo[1].write(rc_pwm_C);   
-      Serial.print("Center=");
-      Serial.println(rc_pwm_C);
-    }
-    if(ch == 'b')
-    {
-      led_L = constrain(led_L+=255, 0, 65535);
-      led_R = constrain(led_R+=255, 0, 65535);
-      analogWrite(LED_PIN_L, led_L);
-      analogWrite(LED_PIN_R, led_R);
-      Serial.print("brighteness++");
-      Serial.print(led_L);
-      Serial.print("+++");
-      Serial.println(led_R);
-    }
-    if(ch == 'v')
-    {
-      led_L = constrain(led_L-=255, 0, 65535);
-      led_R = constrain(led_R-=255, 0, 65535);
-      analogWrite(LED_PIN_L, led_L);
-      analogWrite(LED_PIN_R, led_R);
-      Serial.println("brighteness--");
-      Serial.print(led_L);
-      Serial.print("+++");
-      Serial.println(led_R);
-    }
-  }
-}
-
 void process_recv_cmd( void )
 {
   bool Ret;
@@ -254,14 +140,14 @@ void process_recv_cmd( void )
         break;
     } 
   }
-  else
+  /*else
   {
     if( (tTime-millis()) >= 1000 )
     {
       IsConnected = false;
     }
     tTime = millis();
-  }
+  }*/
 }
 
 void send_cmd_info( void )
@@ -286,7 +172,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
     Pwm[0] = (pCmd->Data[8]<<8) | (pCmd->Data[7]);
     Serial.print("Moter_L : ");
     Serial.println(Pwm[0]);
-    RovServo[RC_MOTOR_L].write(Pwm[0]);
+    RovServo[RC_MOTOR_L].writeMicroseconds(Pwm[0]);
   }
   //Moter_Center
   if(pCmd->Data[9] == 1)
@@ -294,7 +180,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
     Pwm[1] = (pCmd->Data[11]<<8) | (pCmd->Data[10]);
     Serial.print("Moter_C : ");
     Serial.println(Pwm[1]);
-    RovServo[RC_MOTOR_C].write(Pwm[1]);
+    RovServo[RC_MOTOR_C].writeMicroseconds(Pwm[1]);
   }
   //Moter_Right
   if(pCmd->Data[12] == 1)
@@ -302,7 +188,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
     Pwm[2] = (pCmd->Data[14]<<8) | (pCmd->Data[13]);
     Serial.print("Moter_R : ");
     Serial.println(Pwm[2]);
-    RovServo[RC_MOTOR_R].write(Pwm[2]);
+    RovServo[RC_MOTOR_R].writeMicroseconds(Pwm[2]);
   }
   
 
@@ -322,5 +208,40 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
     Serial.print("Led_R : ");
     Serial.println(Led[1]);
     analogWrite(LED_PIN_R, Led[1]);
+  }
+}
+
+
+//---------RCtest(control Motor & LED by using USB serial)---------
+
+void rc_usb_test()
+{
+  char ch;
+  static uint16_t  rc_pwm = 1000;
+  
+  if( Serial.available() )
+  {
+    ch = Serial.read();
+
+    if( ch == 'p' )
+    {
+      rc_pwm = 1000;
+      RovServo[RC_MOTOR_C].writeMicroseconds(rc_pwm);
+      Serial.println("Pwm = 0");
+    }
+
+    if( ch == 'w' )
+    {
+      rc_pwm = constrain(rc_pwm++, 1000, 2000);
+      RovServo[RC_MOTOR_C].writeMicroseconds(rc_pwm);
+      Serial.println(rc_pwm);
+    }
+
+    if( ch == 's' )
+    {
+      rc_pwm = constrain(rc_pwm--, 1000, 2000);
+      RovServo[RC_MOTOR_C].writeMicroseconds(rc_pwm);
+      Serial.println(rc_pwm);
+    }
   }
 }
