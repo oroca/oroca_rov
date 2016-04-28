@@ -254,8 +254,8 @@ int draw_box_h = 100;
 int draw_box_x = 5;
 int draw_box_y = VIEW_SIZE_Y - draw_box_h - 10;
 
-int scale_limit_top = 700;
-int scale_limit_bottom = -700;
+int scale_limit_top = 180;
+int scale_limit_bottom = -180;
 
 int line_s_x;
 int line_s_y;
@@ -302,7 +302,7 @@ void Serial_Draw()
 {
   int i;
   
-  
+  fill(0);
   rect( draw_box_x, draw_box_y, draw_box_w, draw_box_h);
   stroke(127,34,255);     //stroke color
   strokeWeight(1);        //stroke wider
