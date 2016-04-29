@@ -29,6 +29,8 @@ RSP     RovSerial;
 #define LED_PIN_L  8 
 #define LED_PIN_R  9
 
+#define MOTOR_NEUTRAL 1500
+
 bool IsConnected;
 
 void rc_usb_test();
@@ -49,8 +51,8 @@ void setup()
   RovServo[RC_MOTOR_C].attach(RC_MOTOR_PIN_C, 1000, 2000, 0, 255 );
   RovServo[RC_MOTOR_R].attach(RC_MOTOR_PIN_R, 1000, 2000, 0, 255 );
 
-  RovServo[RC_MOTOR_L].writeMicroseconds(0);
-  RovServo[RC_MOTOR_C].writeMicroseconds(0);
+  RovServo[RC_MOTOR_L].writeMicroseconds(1500);
+  RovServo[RC_MOTOR_C].writeMicroseconds(1500);
   RovServo[RC_MOTOR_R].writeMicroseconds(0);
 
   pinMode(LED_PIN_L, PWM);
@@ -196,7 +198,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
   //Led_Left
   if(pCmd->Data[0] == 1)
   {
-    Led[0] = (pCmd->Data[2]<<8) | (pCmd->Data[1]);
+    Led[0] = (0xFFFF - (pCmd->Data[2]<<8) | (pCmd->Data[1]));   
     Serial.print("Led_L : ");
     Serial.println(Led[0]);
     analogWrite(LED_PIN_L, Led[0]);
@@ -204,7 +206,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
   //Led_Right
   if(pCmd->Data[3] == 1)
   {
-    Led[1] = (pCmd->Data[5]<<8) | (pCmd->Data[4]);
+    Led[1] = (0xFFFF - (pCmd->Data[5]<<8) | (pCmd->Data[4]));
     Serial.print("Led_R : ");
     Serial.println(Led[1]);
     analogWrite(LED_PIN_R, Led[1]);
@@ -217,7 +219,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
 void rc_usb_test()
 {
   char ch;
-  static uint16_t  rc_pwm = 1000;
+  static uint16_t  rc_pwm = MOTOR_NEUTRAL;
   
   if( Serial.available() )
   {
@@ -225,7 +227,7 @@ void rc_usb_test()
 
     if( ch == 'p' )
     {
-      rc_pwm = 1000;
+      rc_pwm = MOTOR_NEUTRAL;
       RovServo[RC_MOTOR_C].writeMicroseconds(rc_pwm);
       Serial.println("Pwm = 0");
     }
