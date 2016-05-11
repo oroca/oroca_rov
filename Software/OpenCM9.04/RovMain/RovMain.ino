@@ -13,53 +13,38 @@
 //----------------------------------------------------------------------------
 #include <Servo.h>
 #include "RSP.h"
+#include "Define.h"
+#include "IMU.h"
+#include "LED.h"
 
 RSP     RovSerial;
+Servo   RovServo[3]; 
+cIMU    IMU;
+cLED    LED;
 
-#define USB_TEST_AVAILABLE 1  // control Motor & LED by using USB serial
-
-#define RC_MOTOR_L    0
-#define RC_MOTOR_C    1
-#define RC_MOTOR_R    2
-
-#define RC_MOTOR_PIN_L  2
-#define RC_MOTOR_PIN_C  3
-#define RC_MOTOR_PIN_R  5
-
-#define LED_PIN_L  8 
-#define LED_PIN_R  9
-
-#define MOTOR_NEUTRAL 1500
-
-bool IsConnected;
+bool       IsConnected;
+uint8_t    err_code;
 
 void rc_usb_test();
-void led_setup();
+void Motor_init();
 void process_recv_cmd( void );
 
 void send_cmd_info( void );
 void recv_cmd_control( RSP_CMD_OBJ *pCmd );
-
-Servo   RovServo[3];  
+void sout_IMU_info();
+void cal_IMU_acc();
 
 void setup() 
 {
   Serial.begin(115200);
 
   RovSerial.begin(115200); 
-  RovServo[RC_MOTOR_L].attach(RC_MOTOR_PIN_L, 1000, 2000, 0, 255 );
-  RovServo[RC_MOTOR_C].attach(RC_MOTOR_PIN_C, 1000, 2000, 0, 255 );
-  RovServo[RC_MOTOR_R].attach(RC_MOTOR_PIN_R, 1000, 2000, 0, 255 );
 
-  RovServo[RC_MOTOR_L].writeMicroseconds(1500);
-  RovServo[RC_MOTOR_C].writeMicroseconds(1500);
-  RovServo[RC_MOTOR_R].writeMicroseconds(0);
+  Motor_init();
 
-  pinMode(LED_PIN_L, PWM);
-  pinMode(LED_PIN_R, PWM);
+  LED.Led_init();
 
-  analogWrite(LED_PIN_L, 0);
-  analogWrite(LED_PIN_R, 0);
+  err_code = IMU.begin();
 
   IsConnected = false;
 }
@@ -67,29 +52,34 @@ void setup()
 
 void loop() 
 {
-  static uint32_t tTime[8];
+  static uint32_t tTime[3];
 
+  if( (millis()-tTime[0]) >= 500 )
+  {
+    tTime[0] = millis();
+    LED.toggle();
+  }
+
+  IMU.update();
   //-- 명령어 수신 처리 
   //
   process_recv_cmd();
 
-  if(USB_TEST_AVAILABLE)
-  rc_usb_test();
-
   //-- 100ms마다 ROV정보 전달
   //
-  if( (tTime[0] - millis()) >= 100 )
+  if( (millis()-tTime[1]) >= 100 )
   {
-    tTime[0] = millis();
+    tTime[1] = millis();
 
-    send_cmd_info();
-
-    if( IsConnected == true )
-    {
-      //Serial.println("Connected");
-    }
+   sout_IMU_info();
+   send_cmd_info();
   }
+  cal_IMU_acc();
 
+
+  if(USB_TEST_AVAILABLE)
+  rc_usb_test();
+  
   //-- 연결이 끊어진 상태 
   //
 /* 
@@ -101,7 +91,6 @@ void loop()
   }
   */
 }
-
   
 void process_recv_cmd( void )
 {
@@ -116,21 +105,7 @@ void process_recv_cmd( void )
   {
         pCmd  = RovSerial.Get_CmdPtr(); 
 
-    /*  
-    Serial.print("Cmd : ");
-    Serial.print( pCmd->Cmd, HEX);
-    Serial.print(" Size : ");
-    Serial.print( pCmd->Length, DEC);
-    Serial.print(" ");
-    for( i=0; i<pCmd->Length; i++ )
-    {
-      Serial.print(pCmd->Data[i]);
-      Serial.print(" ");
-    }
-    Serial.println(" ");
-    */
-
-    switch( pCmd->Cmd )
+      switch( pCmd->Cmd )
     {
       case 0x01:
         IsConnected = true;
@@ -198,7 +173,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
   //Led_Left
   if(pCmd->Data[0] == 1)
   {
-    Led[0] = (0xFFFF - (pCmd->Data[2]<<8) | (pCmd->Data[1]));   
+    Led[0] = (LED_OFF - (pCmd->Data[2]<<8) | (pCmd->Data[1]));   
     Serial.print("Led_L : ");
     Serial.println(Led[0]);
     analogWrite(LED_PIN_L, Led[0]);
@@ -206,10 +181,55 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
   //Led_Right
   if(pCmd->Data[3] == 1)
   {
-    Led[1] = (0xFFFF - (pCmd->Data[5]<<8) | (pCmd->Data[4]));
+    Led[1] = (LED_OFF - (pCmd->Data[5]<<8) | (pCmd->Data[4]));
     Serial.print("Led_R : ");
     Serial.println(Led[1]);
     analogWrite(LED_PIN_R, Led[1]);
+  }
+}
+
+
+void Motor_init()
+{
+  RovServo[RC_MOTOR_L].attach(RC_MOTOR_PIN_L, 1000, 2000, 0, 255 );
+  RovServo[RC_MOTOR_C].attach(RC_MOTOR_PIN_C, 1000, 2000, 0, 255 );
+  RovServo[RC_MOTOR_R].attach(RC_MOTOR_PIN_R, 1000, 2000, 0, 255 );
+
+  RovServo[RC_MOTOR_L].writeMicroseconds(1500);
+  RovServo[RC_MOTOR_C].writeMicroseconds(1500);
+  RovServo[RC_MOTOR_R].writeMicroseconds(0);
+}
+
+void sout_IMU_info()
+{
+    Serial.print(err_code);
+    Serial.print(" ");
+    Serial.print(IMU.angle[0]/10);
+    Serial.print(" ");
+    Serial.print(IMU.angle[1]/10);
+    Serial.print(" ");
+    Serial.println(IMU.angle[2]);
+}
+
+void cal_IMU_acc()
+{
+ if( Serial.available() )
+  {
+    char Ch = Serial.read();
+
+    if( Ch == '1' )
+    {
+      Serial.println("ACC Cali Start");
+
+      IMU.SEN.acc_cali_start();
+      while( IMU.SEN.acc_cali_get_done() == false )
+      {
+        IMU.update();
+        //Serial.println( IMU.SEN.calibratingA );
+      }
+
+      Serial.print("ACC Cali End ");
+    }
   }
 }
 
@@ -229,7 +249,7 @@ void rc_usb_test()
     {
       rc_pwm = MOTOR_NEUTRAL;
       RovServo[RC_MOTOR_C].writeMicroseconds(rc_pwm);
-      Serial.println("Pwm = 0");
+      Serial.println("Stop");
     }
 
     if( ch == 'w' )
