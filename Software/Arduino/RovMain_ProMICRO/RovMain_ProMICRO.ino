@@ -52,15 +52,15 @@ void loop()
     send_cmd_info();
   }
   
-  //-- 50ms마다 IMU정보 전달
+  //-- 200ms마다 IMU정보 전달
   if( (millis() - tTime[2]) >= 200 )
   {
     tTime[2] = millis();
     dmp_loop();
   }
 
-   //-- 50ms마다 Pressure정보 전달
-  if( (millis() - tTime[3]) >= 400 )
+   //-- 201ms마다 Pressure정보 전달
+  if( (millis() - tTime[3]) >= 201 )
   {
     tTime[3] = millis();
     ms5540s_loop();

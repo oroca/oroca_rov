@@ -17,9 +17,8 @@
 #include "MS5540S.h"
 
 int clock = 6;
-//int clock = 6;
 
-
+const int get_interval = 35;
 static int ms5540s_state = 0;
 
 
@@ -161,7 +160,7 @@ void ms5540s_loop()
       break;
 
     case 1:
-      if( (millis()-tTime) >= 35 )
+      if( (millis()-tTime) >= get_interval )
       {
         ms5540s_state = 2;
       }
@@ -183,7 +182,7 @@ void ms5540s_loop()
       break;
 
     case 3:
-      if( (millis()-tTime) >= 35 )
+      if( (millis()-tTime) >= get_interval )
       {
         ms5540s_state = 4;
       }
@@ -205,14 +204,14 @@ void ms5540s_loop()
       PCOMP = ((((SENS * (D1 - 7168))/16384)- OFF)/32)+250;
       TEMPREAL = TEMP/10;
       
-      Serial.print("pressure = ");
+      Serial.print("  pressure = ");
       Serial.print(PCOMP);
       Serial.println(" mbar");
       dT2 = dT - ((dT >> 7 * dT >> 7) >> 3);
       TEMPCOMP = (200 + (dT2*(c6+100) >>11))/10;
-      Serial.print("temperature = ");
+      Serial.print("  temperature = ");
       Serial.print(TEMPCOMP);
-      Serial.println(" °C");
+      Serial.println(" *C");
       Serial.println("************************************");
 
       ret = true;
