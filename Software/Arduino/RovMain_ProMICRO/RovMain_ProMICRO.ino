@@ -20,7 +20,7 @@
 #include "mpu.h"
 #include "MS5540S.h"
 
-Servo   RovMotor[4];
+Servo   RovMotor[3];
 RSP RSP;
 MPU6050 mpu;
 
@@ -43,13 +43,12 @@ void loop()
 {
   static uint32_t tTime[4];
  
- //  process_recv_cmd();
+  process_recv_cmd();
   
   //-- 100ms마다 ROV정보 전달
   if( (millis() - tTime[1]) >= 100 )
   {
     tTime[1] = millis();
-
     send_cmd_info();
   }
   
@@ -66,11 +65,8 @@ void loop()
     tTime[3] = millis();
     ms5540s_loop();
   }
-
   
-  
-//  if(USB_TEST_AVAILABLE)
-     //   rc_usb_test();
+ if(USB_TEST_AVAILABLE) rc_usb_test();
 
   //-- 연결이 끊어진 상태 
 /* 
@@ -184,10 +180,10 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
   //Led_Left
   if(pCmd->Data[0] == 1)
   {
-    LED_pwm[LED_L] = (LED_OFF - (pCmd->Data[2]<<8) | (pCmd->Data[1]));   
+    LED_pwm[LED_L] = ((pCmd->Data[2]<<8) | (pCmd->Data[1]));   
     Serial.print("Led_L : ");
     Serial.println(LED_pwm[LED_L]);
-    analogWrite(LED_PIN_L, LED_pwm[LED_L]);
+    digitalWrite(LED_PIN_L, LED_pwm[LED_L]);
   }
  /*
   //Led_Right
@@ -215,8 +211,6 @@ void RovMotor_init()
    RovMotor[RC_MOTOR_C].writeMicroseconds(MOTOR_NEUTRAL);
    RovMotor[RC_MOTOR_R].attach(RC_MOTOR_PIN_R, 1000, 2000);
    RovMotor[RC_MOTOR_R].writeMicroseconds(MOTOR_NEUTRAL);   
- //  RovMotor[RC_LED].attach(LED_PIN_L, 1000, 2000);
- //  RovMotor[RC_LED].writeMicroseconds(MOTOR_NEUTRAL);   
    Serial.println("Motor setup");
 }
 
@@ -386,7 +380,7 @@ void rc_usb_test()
       RovMotor[RC_MOTOR_C].writeMicroseconds(rc_pwm);
       RovMotor[RC_MOTOR_L].writeMicroseconds(rc_pwm);
       RovMotor[RC_MOTOR_R].writeMicroseconds(rc_pwm);
-      Serial.print("usb_motor : ");
+      Serial.print("                                               usb_motor : ");
       Serial.println("Stop");
     }
 
@@ -396,7 +390,7 @@ void rc_usb_test()
       RovMotor[RC_MOTOR_C].writeMicroseconds(rc_pwm);
       RovMotor[RC_MOTOR_L].writeMicroseconds(rc_pwm);
       RovMotor[RC_MOTOR_R].writeMicroseconds(rc_pwm);
-      Serial.print("usb_motor : ");
+      Serial.print("                                               usb_motor : ");
       Serial.println(rc_pwm);
     }
 
@@ -406,30 +400,19 @@ void rc_usb_test()
       RovMotor[RC_MOTOR_C].writeMicroseconds(rc_pwm);
       RovMotor[RC_MOTOR_L].writeMicroseconds(rc_pwm);
       RovMotor[RC_MOTOR_R].writeMicroseconds(rc_pwm);
-      Serial.print("usb_motor : ");
+      Serial.print("                                               usb_motor : ");
       Serial.println(rc_pwm);
     }
 
    if( ch == 'q' )
    {
-      rc_led = constrain(rc_led-=2, 0, 255);
-   //   RovMotor[RC_LED].writeMicroseconds(rc_led);
-     analogWrite(LED_PIN_L, rc_led);
-   //   analogWrite(LED_PIN_R, rc_led);
-      Serial.print("usb_LED : ");
-      Serial.println(rc_led);
+      digitalWrite(LED_PIN_L, 1);
+      Serial.println("                                               usb_LED : OFF");
    }
     if( ch == 'e' )
    {
-      rc_led = constrain(rc_led+=2, 0, 255);
-  //    RovMotor[RC_LED].writeMicroseconds(rc_led);
-    //  rc_led = constrain(rc_led++, 0, 255);
-//      if(rc_led < 0) rc_led = 0;
-//      if(rc_led > LED_OFF) rc_led = LED_OFF;
-      analogWrite(LED_PIN_L, rc_led);
-  //    analogWrite(LED_PIN_R, rc_led);
-      Serial.print("usb_LED : ");
-      Serial.println(rc_led);
+      digitalWrite(LED_PIN_L, 0);
+      Serial.println("                                               usb_LED : ON");
    }
   }    
 }

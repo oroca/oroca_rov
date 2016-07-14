@@ -28,7 +28,8 @@ void Led_setup()
   pinMode(LED_PIN_L, OUTPUT);
  // pinMode(LED_PIN_R, OUTPUT);
 
-  analogWrite(LED_PIN_L, LED_pwm[LED_L]);
+  digitalWrite(LED_PIN_L, 1);
+  //analogWrite(LED_PIN_L, LED_pwm[LED_L]);
  // analogWrite(LED_PIN_R, LED_pwm[LED_R]);
   Serial.println("LED setup");
 }

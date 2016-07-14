@@ -16,7 +16,7 @@
 
 #include <inttypes.h>
 
-#define LED_PIN_L  10
+#define LED_PIN_L  8
 //#define LED_PIN_R  9
 
 #define LED_L 0
