@@ -195,9 +195,9 @@ void Motor_init()
   RovServo[RC_MOTOR_C].attach(RC_MOTOR_PIN_C, 1000, 2000, 0, 255 );
   RovServo[RC_MOTOR_R].attach(RC_MOTOR_PIN_R, 1000, 2000, 0, 255 );
 
-  RovServo[RC_MOTOR_L].writeMicroseconds(1500);
-  RovServo[RC_MOTOR_C].writeMicroseconds(1500);
-  RovServo[RC_MOTOR_R].writeMicroseconds(0);
+  RovServo[RC_MOTOR_L].writeMicroseconds(MOTOR_NEUTRAL);
+  RovServo[RC_MOTOR_C].writeMicroseconds(MOTOR_NEUTRAL);
+  RovServo[RC_MOTOR_R].writeMicroseconds(MOTOR_NEUTRAL);
 }
 
 void sout_IMU_info()
