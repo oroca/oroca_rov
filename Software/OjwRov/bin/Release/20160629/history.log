@@ -1,0 +1,325 @@
+{Main.cs}{btnConnect_Click}{122}{2016/6/29,17:18:24}
+**************[Error]***********
+We couldn't Open 192.168.20.6 [5000]
+********************************
+{2016/6/29,17:18:24}
+------------------------
+1'st. We couldn't Open {0} [{1}]
+------------------------
+
+{Main.cs}{btnConnect_Click}{122}{2016/6/29,17:18:36}
+**************[Error]***********
+We couldn't Open 192.168.20.6 [5000]
+********************************
+{2016/6/29,17:18:36}
+------------------------
+2'st. We couldn't Open {0} [{1}]
+------------------------
+
+{Close}{0}{2016/6/29,17:34:54}
+**************[Error]***********
+개체 참조가 개체의 인스턴스로 설정되지 않았습니다.
+********************************
+{2016/6/29,17:34:54}
+------------------------
+1'st. 개체 참조가 개체의 인스턴스로 설정되지 않았습니다.
+------------------------
+
+{Close}{0}{2016/6/29,17:34:54}
+**************[Error]***********
+개체 참조가 개체의 인스턴스로 설정되지 않았습니다.
+********************************
+{2016/6/29,17:34:54}
+------------------------
+2'st. 개체 참조가 개체의 인스턴스로 설정되지 않았습니다.
+------------------------
+
+{Close}{0}{2016/6/29,17:34:55}
+**************[Error]***********
+개체 참조가 개체의 인스턴스로 설정되지 않았습니다.
+********************************
+{2016/6/29,17:34:55}
+------------------------
+3'st. 개체 참조가 개체의 인스턴스로 설정되지 않았습니다.
+------------------------
+
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:16}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:16}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:19}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:20}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:23}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:23}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:26}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:26}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:29}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:29}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:32}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:32}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:35}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:35}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:39}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:39}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:42}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:42}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:45}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:45}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:48}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:48}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:51}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:51}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:54}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:54}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:21:57}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:21:57}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:22:1}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:22:1}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:22:4}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:22:4}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:22:7}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:22:7}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:22:10}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:22:10}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:22:13}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,18:22:13}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,18:22:16}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{230}{2016/6/29,18:22:17}Joystick is Connected
+{Main.cs}{btnConnect_Click}{108}{2016/6/29,18:24:39}192.168.20.6 is Opened(Port = 5000
+{DynamicInvokeImpl}{0}{2016/6/29,18:24:41}[Thread] is Started
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,20:51:26}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,20:51:26}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,20:51:29}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,20:51:30}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,20:51:33}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,20:51:33}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,20:51:36}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,20:51:36}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,20:51:39}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,20:51:39}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,20:51:42}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,20:51:42}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,20:51:45}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{228}{2016/6/29,20:51:45}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{223}{2016/6/29,20:51:48}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{230}{2016/6/29,20:51:48}Joystick is Connected
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:3}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:3}Data = 100
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:5}Button Down2
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:6}Button Up2
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:6}Button Down4
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:6}Button Up4
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:7}Button Down1
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:7}Button Up1
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:7}Button Down3
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:7}Button Up3
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:9}Button Down1
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:10}Button Up1
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:11}Button Down2
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:12}Button Up2
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:12}Button Down4
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:13}Button Up4
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:14}Button Down3
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:15}Button Up3
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:16}Button Down12
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:17}Button Up12
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:17}Data = 100
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:17}Button Down11
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:18}Button Up11
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:19}Button Down6
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:19}Button Up6
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:52:19}Button Down5
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:52:19}Button Up5
+{Main.cs}{FJoystick_Check_Data}{359}{2016/6/29,20:52:20}Clicked 10
+{Main.cs}{FJoystick_Check_Data}{348}{2016/6/29,20:52:20}Clicked 9
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:30}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:32}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:32}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:32}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:32}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:32}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:33}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:33}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:33}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:34}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:34}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:34}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:34}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:36}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:37}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:37}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:37}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:37}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:37}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:38}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:38}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:38}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:38}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:38}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:39}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:39}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:39}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:39}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:39}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:42}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:42}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:52:42}Data = 100
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:53:2}Button Down1
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:53:4}Button Up1
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:53:4}Button Down3
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:53:5}Button Up3
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:53:5}Button Down1
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:53:6}Button Up1
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:53:6}Button Down3
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:53:7}Button Up3
+{Main.cs}{FJoystick_Check_Data}{371}{2016/6/29,20:53:8}Button Down1
+{Main.cs}{FJoystick_Check_Data}{368}{2016/6/29,20:53:8}Button Up1
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:21}Data = 52.3460746166171
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:21}Data = 65.6275272755016
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:21}Data = 74.2214084077211
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:21}Data = 82.8152895399405
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:21}Data = 82.8152895399405
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:22}Data = 78.1277180132754
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:22}Data = 78.1277180132754
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:22}Data = 78.1277180132754
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:22}Data = 74.2214084077211
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:23}Data = 74.2214084077211
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:23}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:23}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:23}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:23}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:24}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:24}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:24}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:24}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:25}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:25}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:25}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:25}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:25}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:26}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:26}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:26}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:26}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:26}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:27}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:27}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:27}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:27}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:27}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:28}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:28}Data = 82.8152895399405
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:28}Data = 60.9399557488365
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:28}Data = 43.7521934843977
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:29}Data = 73.4401464866102
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:29}Data = 60.9399557488365
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:30}Data = 60.9399557488365
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:30}Data = 52.3460746166171
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:30}Data = 48.4397650110628
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:30}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:30}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:31}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:31}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:31}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:31}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:32}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:32}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:32}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:32}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:32}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:33}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:33}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:33}Data = 47.6585030899519
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:33}Data = 52.3460746166171
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:33}Data = 56.2523842221714
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:34}Data = 82.8152895399405
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:34}Data = 91.4091706721599
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:34}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:34}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:35}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:35}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:35}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:35}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:38}Data = 59.5239185168231
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:38}Data = 65.0782024872206
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:38}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:39}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:39}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:39}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:39}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:40}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:41}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:42}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:42}Data = 100
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:42}Data = 72.2224765392538
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:42}Data = 61.9043259327077
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:42}Data = 57.1435111009384
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:43}Data = 54.7600518806745
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:43}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:43}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:43}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:43}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:44}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:44}Data = 53.173113603418
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:44}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:44}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:44}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:45}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:45}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:45}Data = 53.9665827420462
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:45}Data = 54.7600518806745
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:45}Data = 54.7600518806745
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:46}Data = 54.7600518806745
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:46}Data = 54.7600518806745
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:46}Data = 54.7600518806745
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:53:46}Data = 49.205767910277
+{Main.cs}{FJoystick_Check_Data}{284}{2016/6/29,20:55:15}Data = 100
+{Main.cs}{FJoystick_Check_Data}{348}{2016/6/29,20:55:17}Clicked 9
+{Main.cs}{btnConnect_Click}{108}{2016/6/29,20:56:34}192.168.20.6 is Opened(Port = 5000
+{DynamicInvokeImpl}{0}{2016/6/29,20:56:34}[Thread] is Started
+{Main.cs}{btnConnect_Click}{118}{2016/6/29,20:56:46}Disconnected 192.168.20.6(TCP)
+{DynamicInvokeImpl}{0}{2016/6/29,20:56:46}[Thread] Port Closed
+{DynamicInvokeImpl}{0}{2016/6/29,20:56:46}[Thread] Closed Thread
+{OjwMouseDown}{0}{2016/6/29,21:4:2}MouseDown(Left) InverseNum=255, X[200], Y[111]
+{OjwMouseDown}{0}{2016/6/29,21:4:3}MouseDown(Left) InverseNum=255, X[198], Y[40]
+{OjwMouseDown}{0}{2016/6/29,21:4:3}MouseDown(Left) InverseNum=255, X[218], Y[62]
+{OjwMouseDown}{0}{2016/6/29,21:4:5}MouseDown(Left) InverseNum=255, X[213], Y[41]
+{OjwMouseDown}{0}{2016/6/29,21:4:10}MouseDown(Left) InverseNum=255, X[194], Y[104]
+{OjwMouseDown}{0}{2016/6/29,21:4:11}MouseDown(Left) InverseNum=255, X[202], Y[59]
+{OjwMouseDown}{0}{2016/6/29,21:4:12}MouseDown(Left) InverseNum=255, X[211], Y[54]
+{OjwMouseDown}{0}{2016/6/29,21:4:12}MouseDown(Left) InverseNum=255, X[206], Y[38]
+{OjwMouseDown}{0}{2016/6/29,21:4:13}MouseDown(Left) InverseNum=255, X[175], Y[49]
+{OjwMouseDown}{0}{2016/6/29,21:4:13}MouseDown(Left) InverseNum=255, X[186], Y[40]
+{OjwMouseDown}{0}{2016/6/29,21:4:14}MouseDown(Left) InverseNum=255, X[175], Y[49]
+{OjwMouseDown}{0}{2016/6/29,21:4:14}MouseDown(Left) InverseNum=255, X[194], Y[57]
+{OjwMouseDown}{0}{2016/6/29,21:4:15}MouseDown(Left) InverseNum=255, X[190], Y[66]
+{OjwMouseDown}{0}{2016/6/29,21:4:15}MouseDown(Left) InverseNum=255, X[188], Y[61]
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,21:21:20}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,21:21:20}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,21:21:23}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,21:21:23}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,21:21:26}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,21:21:26}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,21:21:29}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{226}{2016/6/29,21:21:29}Joystick is Connected
+{Main.cs}{btnConnect_Click}{104}{2016/6/29,21:22:17}192.168.20.6 is Opened(Port = 5000
+{DynamicInvokeImpl}{0}{2016/6/29,21:22:17}[Thread] is Started
+{Main.cs}{btnConnect_Click}{114}{2016/6/29,21:22:18}Disconnected 192.168.20.6(TCP)
+{2016/6/29,21:22:18}[Thread] Port Closed
+{DynamicInvokeImpl}{0}{2016/6/29,21:22:18}[Thread] Closed Thread
