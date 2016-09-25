@@ -67,7 +67,7 @@ bool RSP::update( void )
 	{
 		ch = RSP_SERIAL.read();
 		#ifdef _USE_DEBUG
-		Serial.println(ch, HEX);
+	//	Serial.println(ch, HEX);
 		#endif
 	}
 	else
@@ -171,9 +171,9 @@ bool RSP::update( void )
 
 			//Serial.println("ETX");
 			#ifdef _USE_DEBUG
-			Serial.print(Cmd.CheckSumRecv);
-			Serial.print(" ");
-			Serial.println(Cmd.CheckSum);
+	//		Serial.print(Cmd.CheckSumRecv);
+	//		Serial.print(" ");
+	//		Serial.println(Cmd.CheckSum);
 			#endif
 
 			if( ch == RSP_CMD_ETX )

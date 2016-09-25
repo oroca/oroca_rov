@@ -39,7 +39,7 @@ void setup()
   Led_setup();
   dmpDataReady();
   dmp_setup();
- // ms5540s_setup();
+  ms5540s_setup();
 
   
  
@@ -70,10 +70,10 @@ void loop()
   if( (millis() - tTime[3]) >= 201 )
   {
     tTime[3] = millis();
-  //  ms5540s_loop();
+    ms5540s_loop();
   }
   
- if(USB_TEST_AVAILABLE) rc_usb_test();
+// if(USB_TEST_AVAILABLE) rc_usb_test();
 
   //-- 연결이 끊어진 상태 
 /* 
@@ -266,9 +266,9 @@ void dmp_setup() {
 
     // wait for ready
     Serial.println(F("\nSend any character to begin DMP programming and demo: "));
-  //  while (Serial.available() && Serial.read()); // empty buffer
-  //  while (!Serial.available());                 // wait for data
-  //  while (Serial.available() && Serial.read()); // empty buffer again
+    while (Serial.available() && Serial.read()); // empty buffer
+    while (!Serial.available());                 // wait for data
+    while (Serial.available() && Serial.read()); // empty buffer again
 
     // load and configure the DMP
     Serial.println(F("Initializing DMP..."));
@@ -333,7 +333,7 @@ void dmp_loop() {
     if ((mpuIntStatus & 0x10) || fifoCount == 1024) {
         // reset so we can continue cleanly
         mpu.resetFIFO();
-      //  Serial.println(F("FIFO overflow!"));
+        Serial.println(F("FIFO overflow!"));
 
     // otherwise, check for DMP data ready interrupt (this should happen frequently)
     } else if (mpuIntStatus & 0x02) {
@@ -378,6 +378,7 @@ void dmp_loop() {
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
+
 void rc_usb_test()
 {
   char ch;

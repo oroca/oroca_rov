@@ -43,8 +43,8 @@ THE SOFTWARE.
 #ifndef _MPU_H_
 #define _MPU_H_
 
-#include "library/I2Cdev.h"
-#include "library/MPU6050_6Axis_MotionApps20.h"
+#include "I2Cdev.h"
+#include "MPU6050_6Axis_MotionApps20.h"
 #include "Wire.h"
 
 #define INTERRUPT_PIN 7  // use pin 2 on Arduino Uno & most boards
