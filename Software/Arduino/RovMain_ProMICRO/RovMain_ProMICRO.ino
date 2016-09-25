@@ -24,6 +24,11 @@ Servo   RovMotor[3];
 RSP RSP;
 MPU6050 mpu;
 
+int8_t roll_info[4];
+int8_t pitch_info[4];
+int8_t yaw_info[4];
+int8_t pres_info[4];
+
 void setup() 
 {
   Serial.begin(115200);
@@ -34,7 +39,9 @@ void setup()
   Led_setup();
   dmpDataReady();
   dmp_setup();
-  ms5540s_setup();
+ // ms5540s_setup();
+
+  
  
   IsConnected = false;
 }
@@ -49,7 +56,7 @@ void loop()
   if( (millis() - tTime[1]) >= 100 )
   {
     tTime[1] = millis();
-    send_cmd_info();
+    //send_cmd_info();
   }
   
   //-- 200ms마다 IMU정보 전달
@@ -63,7 +70,7 @@ void loop()
   if( (millis() - tTime[3]) >= 201 )
   {
     tTime[3] = millis();
-    ms5540s_loop();
+  //  ms5540s_loop();
   }
   
  if(USB_TEST_AVAILABLE) rc_usb_test();
@@ -133,11 +140,20 @@ void process_recv_cmd( void )
 ---------------------------------------------------------------------------*/
 void send_cmd_info( void )
 {
+  uint8_t i;
   RSP_CMD_OBJ  Cmd;
   
-  Cmd.Cmd     = 0xFF;
-  Cmd.Length  = 1;
-  Cmd.Data[0] = 100;
+  
+  Cmd.Cmd     = 0x81;
+  Cmd.Length  = 16;
+  for(i=0;i<4;i++)
+  {
+    Cmd.Data[i] = roll_info[i];
+    Cmd.Data[4+i] = pitch_info[i];
+    Cmd.Data[8+i] = yaw_info[i];
+    Cmd.Data[12+i] = pres_info[i];
+  }
+  
 
   RSP.SendCmd( &Cmd );
 }

@@ -15,6 +15,7 @@
 
 #include "RSP.h"
 
+/*  RSP Define for send data to server  */
 #define RSP_CMD_STX							0x02
 #define RSP_CMD_ETX							0x03
 

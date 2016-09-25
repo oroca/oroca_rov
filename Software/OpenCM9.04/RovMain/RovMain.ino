@@ -44,7 +44,7 @@ void setup()
 
   LED.Led_init();
 
-  err_code = IMU.begin();
+  //err_code = IMU.begin();
 
   IsConnected = false;
 }
@@ -60,7 +60,7 @@ void loop()
     LED.toggle();
   }
 
-  IMU.update();
+  //IMU.update();
   //-- 명령어 수신 처리 
   //
   process_recv_cmd();
@@ -71,10 +71,10 @@ void loop()
   {
     tTime[1] = millis();
 
-   sout_IMU_info();
-   send_cmd_info();
+  // sout_IMU_info();
+  // send_cmd_info();
   }
-  cal_IMU_acc();
+ // cal_IMU_acc();
 
 
   if(USB_TEST_AVAILABLE)
@@ -236,6 +236,7 @@ void cal_IMU_acc()
 
 //---------RCtest(control Motor & LED by using USB serial)---------
 
+/*
 void rc_usb_test()
 {
   char ch;
@@ -266,4 +267,62 @@ void rc_usb_test()
       Serial.println(rc_pwm);
     }
   }
+}
+*/
+
+
+
+void rc_usb_test()
+{
+  char ch;
+  static uint16_t  rc_pwm = MOTOR_NEUTRAL;
+  static uint16_t  rc_led = 0;
+ 
+  
+  
+  if( Serial.available() )
+  {
+    ch = Serial.read();
+
+    if( ch =='p' )
+    {
+      rc_pwm = MOTOR_NEUTRAL;
+      RovServo[RC_MOTOR_C].writeMicroseconds(rc_pwm);
+      RovServo[RC_MOTOR_L].writeMicroseconds(rc_pwm);
+      RovServo[RC_MOTOR_R].writeMicroseconds(rc_pwm);
+      Serial.print("                                               usb_motor : ");
+      Serial.println("Stop");
+    }
+
+    if( ch == 'w' )
+    {
+      rc_pwm = constrain(rc_pwm++, 1000, 2000);
+      RovServo[RC_MOTOR_C].writeMicroseconds(rc_pwm);
+      RovServo[RC_MOTOR_L].writeMicroseconds(rc_pwm);
+      RovServo[RC_MOTOR_R].writeMicroseconds(rc_pwm);
+      Serial.print("                                               usb_motor : ");
+      Serial.println(rc_pwm);
+    }
+
+    if( ch == 's' )
+    {
+      rc_pwm = constrain(rc_pwm--, 1000, 2000);
+      RovServo[RC_MOTOR_C].writeMicroseconds(rc_pwm);
+      RovServo[RC_MOTOR_L].writeMicroseconds(rc_pwm);
+      RovServo[RC_MOTOR_R].writeMicroseconds(rc_pwm);
+      Serial.print("                                               usb_motor : ");
+      Serial.println(rc_pwm);
+    }
+
+   if( ch == 'q' )
+   {
+      digitalWrite(LED_PIN_L, 1);
+      Serial.println("                                               usb_LED : OFF");
+   }
+    if( ch == 'e' )
+   {
+      digitalWrite(LED_PIN_L, 0);
+      Serial.println("                                               usb_LED : ON");
+   }
+  }    
 }

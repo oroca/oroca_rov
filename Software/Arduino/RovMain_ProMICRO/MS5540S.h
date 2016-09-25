@@ -21,6 +21,7 @@ void ms5540s_reset();
 void ms5540s_setup();
 void ms5540s_loop();
 
+//extern static long PCOMP;
 
 
 #endif
