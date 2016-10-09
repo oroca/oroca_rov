@@ -24,10 +24,7 @@ Servo   RovMotor[3];
 RSP RSP;
 MPU6050 mpu;
 
-int8_t roll_info[4];
-int8_t pitch_info[4];
-int8_t yaw_info[4];
-int8_t pres_info[4];
+volatile float water_depth;
 
 void setup() 
 {
@@ -40,8 +37,6 @@ void setup()
   dmpDataReady();
   dmp_setup();
   ms5540s_setup();
-
-  
  
   IsConnected = false;
 }
@@ -56,7 +51,8 @@ void loop()
   if( (millis() - tTime[1]) >= 100 )
   {
     tTime[1] = millis();
-    //send_cmd_info();
+   // send_cmd_info();
+    send_rov_info();
   }
   
   //-- 200ms마다 IMU정보 전달
@@ -73,7 +69,7 @@ void loop()
     ms5540s_loop();
   }
   
-// if(USB_TEST_AVAILABLE) rc_usb_test();
+ if(USB_TEST_AVAILABLE) rc_usb_test();
 
   //-- 연결이 끊어진 상태 
 /* 
@@ -140,23 +136,48 @@ void process_recv_cmd( void )
 ---------------------------------------------------------------------------*/
 void send_cmd_info( void )
 {
-  uint8_t i;
   RSP_CMD_OBJ  Cmd;
   
-  
-  Cmd.Cmd     = 0x81;
-  Cmd.Length  = 16;
-  for(i=0;i<4;i++)
-  {
-    Cmd.Data[i] = roll_info[i];
-    Cmd.Data[4+i] = pitch_info[i];
-    Cmd.Data[8+i] = yaw_info[i];
-    Cmd.Data[12+i] = pres_info[i];
-  }
-  
+  Cmd.Cmd     = 0xFF;
+  Cmd.Length  = 1;
+  Cmd.Data[0] = 100;
 
   RSP.SendCmd( &Cmd );
 }
+
+/*---------------------------------------------------------------------------
+     TITLE   : send_rov_info
+     WORK    : 
+     ARG     : void
+     RET     : void
+---------------------------------------------------------------------------*/
+void send_rov_info( void )
+{
+  RSP_CMD_OBJ  Cmd;
+  
+  Cmd.Cmd     = 0x81;
+  Cmd.Length  = 16;
+  Cmd.Data[0] = (char)(*((unsigned long*)&roll) >> 24);
+  Cmd.Data[1] = (char)(*((unsigned long*)&roll) >> 16);
+  Cmd.Data[2] = (char)(*((unsigned long*)&roll) >> 8);
+  Cmd.Data[3] = (char)(*((unsigned long*)&roll));
+  Cmd.Data[4] = (char)(*((unsigned long*)&pitch) >> 24);
+  Cmd.Data[5] = (char)(*((unsigned long*)&pitch) >> 16);
+  Cmd.Data[6] = (char)(*((unsigned long*)&pitch) >> 8);
+  Cmd.Data[7] = (char)(*((unsigned long*)&pitch));
+  Cmd.Data[8] = (char)(*((unsigned long*)&yaw) >> 24);
+  Cmd.Data[9] = (char)(*((unsigned long*)&yaw) >> 16);
+  Cmd.Data[10] = (char)(*((unsigned long*)&yaw) >> 8);
+  Cmd.Data[11] = (char)(*((unsigned long*)&yaw));
+  Cmd.Data[12] = (char)(*((unsigned long*)&water_depth) >> 24);
+  Cmd.Data[13] = (char)(*((unsigned long*)&water_depth) >> 16);
+  Cmd.Data[14] = (char)(*((unsigned long*)&water_depth) >> 8);
+  Cmd.Data[15] = (char)(*((unsigned long*)&water_depth));
+    
+  RSP.SendCmd( &Cmd );
+}
+
+
 
 /*---------------------------------------------------------------------------
      TITLE   : recv_cmd_control
@@ -266,9 +287,9 @@ void dmp_setup() {
 
     // wait for ready
     Serial.println(F("\nSend any character to begin DMP programming and demo: "));
-    while (Serial.available() && Serial.read()); // empty buffer
-    while (!Serial.available());                 // wait for data
-    while (Serial.available() && Serial.read()); // empty buffer again
+  //  while (Serial.available() && Serial.read()); // empty buffer
+  //  while (!Serial.available());                 // wait for data
+  //  while (Serial.available() && Serial.read()); // empty buffer again
 
     // load and configure the DMP
     Serial.println(F("Initializing DMP..."));
@@ -333,7 +354,7 @@ void dmp_loop() {
     if ((mpuIntStatus & 0x10) || fifoCount == 1024) {
         // reset so we can continue cleanly
         mpu.resetFIFO();
-        Serial.println(F("FIFO overflow!"));
+      //  Serial.println(F("FIFO overflow!"));
 
     // otherwise, check for DMP data ready interrupt (this should happen frequently)
     } else if (mpuIntStatus & 0x02) {
@@ -357,6 +378,15 @@ void dmp_loop() {
             yaw = ypr[0] * 180/M_PI;
             roll = ypr[1] * 180/M_PI;
             pitch = ypr[2] * 180/M_PI;
+/*
+            Serial.print(F("Orientation: "));
+          Serial.print(roll);
+    Serial.print(F(" "));
+    Serial.print(pitch);
+    Serial.print(F(" "));
+    Serial.print(yaw);
+    Serial.println(F(""));
+*/
                         
             Serial.print("  roll : ");
             Serial.print(roll);
@@ -378,7 +408,6 @@ void dmp_loop() {
      ARG     : void
      RET     : void
 ---------------------------------------------------------------------------*/
-
 void rc_usb_test()
 {
   char ch;

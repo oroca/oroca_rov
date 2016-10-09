@@ -17,11 +17,14 @@
 #include <inttypes.h>
 #include <SPI.h>
 
+#define FRESH_WATER  1000.0 // [kg/m^3] 
+#define SEA_WATER 1030.0 // [kg/m^3]
+
 void ms5540s_reset();
 void ms5540s_setup();
 void ms5540s_loop();
 
-//extern static long PCOMP;
+
 
 
 #endif

@@ -274,8 +274,10 @@ namespace OjwRov
                         double dData = (double)Math.Abs(m_CJoy.dX0 - 0.5);
                         if (dData > 0)
                         {
-                            double dValue = (dData * 2) * 100.0;
+                            //1448 +- 300
+                            double dValue = 1448 + (dData * 2) * 300;// (dData * 2) * 100.0;
                             int nValue2 = (int)((dData * 2) * 65535);
+                            nValue2 = (nValue2 != 0) ? 1 : 0;
                             Ojw.CMessage.Write("Data = {0}", dValue);
                             SendValue(1, nValue2, 1, nValue2, 1, (int)dValue, 1, (int)dValue, 1, (int)dValue);
                         }
@@ -403,6 +405,35 @@ namespace OjwRov
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (m_CStream.IsStreaming == true) m_CStream.Stop();
+        }
+
+        private void btnTest_Click(object sender, EventArgs e)
+        {
+            SendValue(1, 100, 1, 200, 0, 50, 0, 30);
+        }
+
+        private void txtTest_Click(object sender, EventArgs e)
+        {
+            int nEn0 = (txtTest0.Text.Length > 0) ? 1 : 0;
+            int nTest0 = Ojw.CConvert.StrToInt(txtTest0.Text);
+            
+            int nEn1 = (txtTest1.Text.Length > 0) ? 1 : 0;
+            int nTest1 = Ojw.CConvert.StrToInt(txtTest1.Text);
+            
+            int nEn2 = (txtTest2.Text.Length > 0) ? 1 : 0;
+            int nTest2 = Ojw.CConvert.StrToInt(txtTest2.Text);
+            
+            int nEn3 = (txtTest3.Text.Length > 0) ? 1 : 0;
+            int nTest3 = Ojw.CConvert.StrToInt(txtTest3.Text);
+            
+            int nEn4 = (txtTest4.Text.Length > 0) ? 1 : 0;
+            int nTest4 = Ojw.CConvert.StrToInt(txtTest4.Text);
+            SendValue(
+                nEn0, nTest0,
+                nEn1, nTest1,
+                nEn2, nTest2, 
+                nEn3, nTest3, 
+                nEn4, nTest4);
         }
     }
 }

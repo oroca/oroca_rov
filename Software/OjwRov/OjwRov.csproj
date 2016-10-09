@@ -45,8 +45,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Dll\AForge.Video.dll</HintPath>
     </Reference>
-    <Reference Include="AForge.Video.DirectShow">
-      <HintPath>.\AForge.Video.DirectShow.dll</HintPath>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Dll\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="OpenJigWare, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -62,21 +63,17 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tao.FreeGlut, Version=2.4.0.2, Culture=neutral, PublicKeyToken=6e602a6ad6c0d06d, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Dll\Tao.FreeGlut.dll</HintPath>
+    <Reference Include="Tao.FreeGlut">
+      <HintPath>..\..\..\..\GitHub\for Me(In Secret)\OpenJigWare\trunk\OpenJigWare\Released_DLL\Tao.FreeGlut.dll</HintPath>
     </Reference>
-    <Reference Include="Tao.Ode, Version=0.9.0.0, Culture=neutral, PublicKeyToken=e499629dc69cd531, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Dll\Tao.Ode.dll</HintPath>
+    <Reference Include="Tao.Ode">
+      <HintPath>..\..\..\..\GitHub\for Me(In Secret)\OpenJigWare\trunk\OpenJigWare\Released_DLL\Tao.Ode.dll</HintPath>
     </Reference>
-    <Reference Include="Tao.OpenGl, Version=2.1.0.12, Culture=neutral, PublicKeyToken=1ca010269a4501ef, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Dll\Tao.OpenGl.dll</HintPath>
+    <Reference Include="Tao.OpenGl">
+      <HintPath>..\..\..\..\GitHub\for Me(In Secret)\OpenJigWare\trunk\OpenJigWare\Released_DLL\Tao.OpenGl.dll</HintPath>
     </Reference>
-    <Reference Include="Tao.Platform.Windows, Version=1.0.0.5, Culture=neutral, PublicKeyToken=701104b2da67a104, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>Dll\Tao.Platform.Windows.dll</HintPath>
+    <Reference Include="Tao.Platform.Windows">
+      <HintPath>..\..\..\..\GitHub\for Me(In Secret)\OpenJigWare\trunk\OpenJigWare\Released_DLL\Tao.Platform.Windows.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -112,10 +109,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="oroca.ico" />
-    <Content Include="Tao.FreeGlut.dll" />
-    <Content Include="Tao.Ode.dll" />
-    <Content Include="Tao.OpenGl.dll" />
-    <Content Include="Tao.Platform.Windows.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -15,7 +15,6 @@
 
 #include "RSP.h"
 
-/*  RSP Define for send data to server  */
 #define RSP_CMD_STX							0x02
 #define RSP_CMD_ETX							0x03
 
@@ -67,7 +66,7 @@ bool RSP::update( void )
 	{
 		ch = RSP_SERIAL.read();
 		#ifdef _USE_DEBUG
-	//	Serial.println(ch, HEX);
+		Serial.println(ch, HEX);
 		#endif
 	}
 	else
@@ -171,9 +170,9 @@ bool RSP::update( void )
 
 			//Serial.println("ETX");
 			#ifdef _USE_DEBUG
-	//		Serial.print(Cmd.CheckSumRecv);
-	//		Serial.print(" ");
-	//		Serial.println(Cmd.CheckSum);
+			Serial.print(Cmd.CheckSumRecv);
+			Serial.print(" ");
+			Serial.println(Cmd.CheckSum);
 			#endif
 
 			if( ch == RSP_CMD_ETX )

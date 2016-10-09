@@ -23,11 +23,11 @@
 
 typedef struct 
 {
-	int8_t	Cmd;
-	int8_t	Length;
-	int8_t CheckSum;
-	int8_t CheckSumRecv;	
-	int8_t	Data[RSP_CMD_MAX_LENGTH];	
+	uint8_t	Cmd;
+	uint8_t	Length;
+	uint8_t CheckSum;
+	uint8_t CheckSumRecv;	
+	char	Data[RSP_CMD_MAX_LENGTH];	
 } RSP_CMD_OBJ;
 
 typedef struct 

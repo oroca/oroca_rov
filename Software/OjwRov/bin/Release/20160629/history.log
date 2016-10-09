@@ -323,3 +323,47 @@ We couldn't Open 192.168.20.6 [5000]
 {Main.cs}{btnConnect_Click}{114}{2016/6/29,21:22:18}Disconnected 192.168.20.6(TCP)
 {2016/6/29,21:22:18}[Thread] Port Closed
 {DynamicInvokeImpl}{0}{2016/6/29,21:22:18}[Thread] Closed Thread
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,10:10:24}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,10:10:24}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:23:48}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:23:48}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:23:51}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:23:51}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:23:55}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:23:55}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:23:58}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:23:58}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:1}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:1}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:4}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:4}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:7}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:8}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:11}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:11}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:14}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:14}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:17}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:17}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:20}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:20}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:24}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:24}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:27}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:27}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:30}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:30}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:33}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:33}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:36}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:36}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:40}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:40}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:43}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:43}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:46}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:46}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:49}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:49}But we can't find a joystick device in here. Check your joystick device
+{Main.cs}{FJoystick_Check_Alive}{219}{2016/6/29,11:24:52}Joystick Check again
+{Main.cs}{FJoystick_Check_Alive}{224}{2016/6/29,11:24:53}But we can't find a joystick device in here. Check your joystick device

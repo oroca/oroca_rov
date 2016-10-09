@@ -16,3 +16,7 @@ Z:\10.SW\Bin\C#\Rov\Test\OjwRov\OjwRov\bin\Release\Microsoft.Contracts.dll
 Z:\10.SW\Bin\C#\Rov\Test\OjwRov\OjwRov\bin\Release\AForge.dll
 Z:\10.SW\Bin\C#\Rov\Test\OjwRov\OjwRov\bin\Release\AForge.Imaging.dll
 Z:\10.SW\Bin\C#\Rov\Test\OjwRov\OjwRov\bin\Release\AForge.Math.dll
+D:\Embededd\GasanRobotis\Oroca ROV\SW\OjwRov_20160921\OjwRov\obj\x86\Release\OjwRov.exe
+D:\Embededd\GasanRobotis\Oroca ROV\SW\OjwRov_20160921\OjwRov\obj\x86\Release\OjwRov.pdb
+C:\Users\KKW\Documents\GitHub\oroca_rov\Software\OjwRov\obj\x86\Release\OjwRov.exe
+C:\Users\KKW\Documents\GitHub\oroca_rov\Software\OjwRov\obj\x86\Release\OjwRov.pdb

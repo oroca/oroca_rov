@@ -1,5 +1,5 @@
 //----------------------------------------------------------------------------
-//    프로그램명 	: Command
+//    프로그램명 	: Define
 //
 //    만든이     	:  
 //
@@ -9,10 +9,10 @@
 //
 //    MPU_Type	: 
 //
-//    파일명     	: Command.h
+//    파일명     	: Define.h
 //----------------------------------------------------------------------------
-#ifndef _COMMAND_H_
-#define _COMMAND_H_
+#ifndef _DEFINE_H_
+#define _DEFINE_H_
 
 #include <inttypes.h>
 
@@ -39,4 +39,4 @@ static uint16_t Motor_pwm[3] = {MOTOR_NEUTRAL,MOTOR_NEUTRAL,MOTOR_NEUTRAL};
 
 
 
-#endif _COMMAND_H_
+#endif _DEFINE_H_
