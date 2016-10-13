@@ -28,7 +28,7 @@
 #define RC_MOTOR_PIN_R  10
 
 #define MOTOR_NEUTRAL 1488
-#define USB_TEST_AVAILABLE 1
+#define USB_TEST_AVAILABLE 0
 
 ////////////////////////////////
 

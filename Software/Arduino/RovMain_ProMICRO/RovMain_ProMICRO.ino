@@ -34,9 +34,9 @@ void setup()
   
   RovMotor_init();
   Led_setup();
-  //dmpDataReady();
- // dmp_setup();
- // ms5540s_setup();
+  dmpDataReady();
+  dmp_setup();
+  ms5540s_setup();
  
   IsConnected = false;
 }
@@ -59,17 +59,17 @@ void loop()
   if( (millis() - tTime[2]) >= 200 )
   {
     tTime[2] = millis();
-    //dmp_loop();
+    dmp_loop();
   }
 
    //-- 201ms마다 Pressure정보 전달
   if( (millis() - tTime[3]) >= 201 )
   {
     tTime[3] = millis();
-  //  ms5540s_loop();
+    ms5540s_loop();
   }
   
- if(USB_TEST_AVAILABLE) rc_usb_test();
+ if(USB_TEST_AVAILABLE) rc_usb_test();    //define in Define.h
 
   //-- 연결이 끊어진 상태 
 /* 
