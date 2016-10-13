@@ -24,19 +24,19 @@ Servo   RovMotor[3];
 RSP RSP;
 MPU6050 mpu;
 
-volatile float water_depth;
+float water_depth;
 
 void setup() 
 {
   Serial.begin(115200);
   RSP.begin(115200);
-  while (!Serial);
+  //while (!Serial);
   
   RovMotor_init();
   Led_setup();
-  dmpDataReady();
-  dmp_setup();
-  ms5540s_setup();
+  //dmpDataReady();
+ // dmp_setup();
+ // ms5540s_setup();
  
   IsConnected = false;
 }
@@ -51,22 +51,22 @@ void loop()
   if( (millis() - tTime[1]) >= 100 )
   {
     tTime[1] = millis();
-   // send_cmd_info();
-    send_rov_info();
+    //send_cmd_info();
+   // send_rov_info();
   }
   
   //-- 200ms마다 IMU정보 전달
   if( (millis() - tTime[2]) >= 200 )
   {
     tTime[2] = millis();
-    dmp_loop();
+    //dmp_loop();
   }
 
    //-- 201ms마다 Pressure정보 전달
   if( (millis() - tTime[3]) >= 201 )
   {
     tTime[3] = millis();
-    ms5540s_loop();
+  //  ms5540s_loop();
   }
   
  if(USB_TEST_AVAILABLE) rc_usb_test();
@@ -191,15 +191,15 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
   //Moter_Left
   if(pCmd->Data[6] == 1)
   {
-    Motor_pwm[RC_MOTOR_L] = (pCmd->Data[8]<<8) | (pCmd->Data[7]);
+    Motor_pwm[RC_MOTOR_L] = ((uint16_t)(pCmd->Data[8]<<8) & 0xff00) | ((uint16_t)(pCmd->Data[7]) & 0xff);
     Serial.print("Moter_L : ");
-    Serial.println(Motor_pwm[RC_MOTOR_C]);
+    Serial.println(Motor_pwm[RC_MOTOR_L]);
     RovMotor[RC_MOTOR_L].writeMicroseconds(Motor_pwm[RC_MOTOR_L]);
   }
   //Moter_Center
   if(pCmd->Data[9] == 1)
   {
-    Motor_pwm[RC_MOTOR_C] = (pCmd->Data[11]<<8) | (pCmd->Data[10]);
+    Motor_pwm[RC_MOTOR_C] = ((uint16_t)(pCmd->Data[11]<<8) & 0xff00) | ((uint16_t)(pCmd->Data[10]) & 0xff);
     Serial.print("Moter_C : ");
     Serial.println(Motor_pwm[RC_MOTOR_C]);
     RovMotor[RC_MOTOR_C].writeMicroseconds(Motor_pwm[RC_MOTOR_C]);
@@ -207,7 +207,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
   //Moter_Right
   if(pCmd->Data[12] == 1)
   {
-    Motor_pwm[RC_MOTOR_R] = (pCmd->Data[14]<<8) | (pCmd->Data[13]);
+    Motor_pwm[RC_MOTOR_R] = ((uint16_t)(pCmd->Data[14]<<8) & 0xff00) | ((uint16_t)(pCmd->Data[13]) & 0xff);
     Serial.print("Moter_R : ");
     Serial.println(Motor_pwm[RC_MOTOR_R]);
     RovMotor[RC_MOTOR_R].writeMicroseconds(Motor_pwm[RC_MOTOR_R]);
@@ -217,7 +217,7 @@ void recv_cmd_control( RSP_CMD_OBJ *pCmd )
   //Led_Left
   if(pCmd->Data[0] == 1)
   {
-    LED_pwm[LED_L] = ((pCmd->Data[2]<<8) | (pCmd->Data[1]));   
+    LED_pwm[LED_L] = ((uint16_t)(pCmd->Data[2]<<8) & 0xff00) | ((uint16_t)(pCmd->Data[1]) & 0xff);  
     Serial.print("Led_L : ");
     Serial.println(LED_pwm[LED_L]);
     digitalWrite(LED_PIN_L, LED_pwm[LED_L]);
@@ -378,15 +378,6 @@ void dmp_loop() {
             yaw = ypr[0] * 180/M_PI;
             roll = ypr[1] * 180/M_PI;
             pitch = ypr[2] * 180/M_PI;
-/*
-            Serial.print(F("Orientation: "));
-          Serial.print(roll);
-    Serial.print(F(" "));
-    Serial.print(pitch);
-    Serial.print(F(" "));
-    Serial.print(yaw);
-    Serial.println(F(""));
-*/
                         
             Serial.print("  roll : ");
             Serial.print(roll);

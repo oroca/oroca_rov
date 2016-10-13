@@ -16,11 +16,11 @@
 ////////////////////////////////////////////
 #include "MS5540S.h"
 
-extern volatile float water_depth;
+extern float water_depth;
 
 const int clock = 6;
 
-const float water_type = SEA_WATER; //FRESH_WATER // SEA_WATER
+const float water_type = SEA_WATER;
 const int get_interval = 35;
 static int ms5540s_state = 0;
 
@@ -212,7 +212,7 @@ void ms5540s_loop()
       presLSB = SPI.transfer(0x00); //send dummy byte to read second byte of value
       D1 = presMSB | presLSB;
           
-     // Serial.println(D1);   
+      Serial.println(D1);   
           
       UT1 = (c5 * 8) + 20224;   //calculate calibration temperature
       //calculate actual temperature
@@ -251,11 +251,11 @@ void ms5540s_loop()
       else
       {
         g = 9.780318*(1.0 + ((5.2788*1/1000) + 2.36*1/100000 * x)*x) + (1.092*1/1000000*PCOMP2);
-        DEPTH = ((((((-1.82*1/1000000000000000)*PCOMP2 + (2.279*1/10000000000))*PCOMP2 - (2.2512*1/100000))*PCOMP2 + 9.72659)*PCOMP2)/g)/1000;  //1000mb = bar
+        DEPTH = (((((-1.82*1/1000000000000000)*PCOMP2 + (2.279*1/10000000000))*PCOMP2 - (2.2512*1/100000))*PCOMP2 + 9.72659)*PCOMP2)/g;
       }  
 
       water_depth = DEPTH;
-
+/*
       Serial.print("Pressure : ");      
       Serial.print(PCOMP);
       Serial.println(" mb(millibar)");   
@@ -266,7 +266,7 @@ void ms5540s_loop()
       Serial.print(DEPTH);
       Serial.println(" m");   
       Serial.println();
-
+*/
       ret = true;
       ms5540s_state = 0;
       break;

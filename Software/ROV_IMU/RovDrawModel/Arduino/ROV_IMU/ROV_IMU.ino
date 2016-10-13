@@ -22,10 +22,6 @@ void setup()
 	err_code = IMU.begin();
 }
 
-
-
-
-
 void loop() 
 {
 	static uint32_t tTime[2];
@@ -37,10 +33,8 @@ void loop()
 		tTime[0] = millis();
 		LED.toggle();
 	}
-
-
+	
 	IMU.update();
-
 
 	if( (millis()-tTime[1]) >= 50 )
 	{

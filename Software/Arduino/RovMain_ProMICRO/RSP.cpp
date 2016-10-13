@@ -25,7 +25,7 @@
 #define RSP_CMD_STATE_WAIT_CHECKSUM			4
 #define RSP_CMD_STATE_WAIT_ETX				5
 
-// #define _USE_DEBUG	
+#define _USE_DEBUG	
 
 /*---------------------------------------------------------------------------
      TITLE   : RSP
@@ -66,7 +66,8 @@ bool RSP::update( void )
 	{
 		ch = RSP_SERIAL.read();
 		#ifdef _USE_DEBUG
-		Serial.println(ch, HEX);
+		Serial.print(ch, HEX);
+    Serial.print(", ");
 		#endif
 	}
 	else
