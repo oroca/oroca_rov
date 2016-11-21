@@ -40,6 +40,16 @@ int serial_baud = 115200;// serial port buttons
 OBJModel model;
 
 
+void keyReleased()
+{
+  //if( keyCode == '1' )
+  {
+    if( serial_port != null )
+    {
+      serial_port.write(keyCode);
+    }
+  }
+}
 
 
 void setup() 
